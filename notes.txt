@@ -5,8 +5,27 @@ handler.js file contains actual code for the services/functions that will be dep
 serverless.yml file contains the configuration on what AWS services Serverless will provision and how to configure them.
 
 tests/ directory where we can add our unit tests.
-
+------------------------
 GIT: https://github.com/mmanzo1001/serverless-stack-api.git
+
+GIT BACKEND: https://github.com/mmanzo1001/serverless-stack-client.git
+
+TO GIT:
+Initiatlize Repository
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/mmanzo1001/serverless-stack-client.git
+git remote -v
+git push -u origin master
+
+Commit the Changes
+
+git add .
+git commit -m "Setting up our React app"
+git push
+
+-------------------------
 
 steps: 
 1. install serverless: npm install serverless -g
@@ -34,3 +53,49 @@ COPYcatch(e) {
   console.log(e);
   return failure({status: false});
 }
+
+Serverless: Stack update finished...
+Service Information
+service: lambda-app
+stage: prod
+region: us-east-1
+stack: lambda-app-prod
+resources: 43
+api keys:
+  None
+endpoints:
+  POST - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/notes
+  GET - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/notes
+  PUT - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  DELETE - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  POST - https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod/billing
+functions:
+  create: lambda-app-prod-create
+  get: lambda-app-prod-get
+  list: lambda-app-prod-list
+  update: lambda-app-prod-update
+  delete: lambda-app-prod-delete
+  billing: lambda-app-prod-billing
+layers:
+  None
+Serverless: Run the "serverless" command to setup monitoring, troubleshooting and testing.
+
+
+npx aws-api-gateway-cli-test --username mmanzo+test@gmail.com --password Test1234! --user-pool-id us-east-1_IdRtUtshE --app-client-id 48emebe8o02lq79ektpb07vnqr --cognito-region us-east-1 --identity-pool-id us-east-1:dc08904a-735e-4008-9b81-df6178be1bcc --invoke-url https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod --api-gateway-region us-east-1 --path-template /notes --method POST --body {"content":"hello world","attachment":"hello.jpg"}
+
+npx aws-api-gateway-cli-test --username='mmanzo+test@gmail.com' --password='Test1234!' --user-pool-id='us-east-1_IdRtUtshE' --app-client-id='48emebe8o02lq79ektpb07vnqr' --cognito-region='us-east-1' --identity-pool-id='us-east-1:dc08904a-735e-4008-9b81-df6178be1bcc' --invoke-url='https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod' --api-gateway-region='us-east-1 --path-template='/notes' --method='POST' --body='{"content":"hello world","attachment":"hello.jpg"}'
+
+
+npx aws-api-gateway-cli-test \
+--username='mmanzo+test@gmail.com'\
+--password='Test1234!' \
+--user-pool-id='us-east-1_IdRtUtshE' \
+--app-client-id='48emebe8o02lq79ektpb07vnqr' \
+--cognito-region='us-east-1' \ 
+--identity-pool-id='us-east-1:dc08904a-735e-4008-9b81-df6178be1bcc' \
+--invoke-url='https://0wswag2e6j.execute-api.us-east-1.amazonaws.com/prod' \
+--api-gateway-region='us-east-1 \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"hello world","attachment":"hello.jpg"}'

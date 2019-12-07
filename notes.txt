@@ -160,3 +160,36 @@ NEW NOTE . js
           Create1
         </LoaderButton>
       </form>
+
+
+
+
+Serverless deploy -v
+OUTPUT WAS:
+Serverless: Stack update finished...
+Service Information
+service: lambda-app2
+stage: dev
+region: us-east-1
+stack: lambda-app2-dev
+resources: 50
+api keys:
+  None
+endpoints:
+  POST - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/notes
+  GET - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  GET - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/notes
+  PUT - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  DELETE - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  POST - https://hdi97da847.execute-api.us-east-1.amazonaws.com/dev/billing
+functions:
+  create: lambda-app2-dev-create
+  get: lambda-app2-dev-get
+  list: lambda-app2-dev-list
+  update: lambda-app2-dev-update
+  delete: lambda-app2-dev-delete
+  billing: lambda-app2-dev-billing
+layers:
+  None
+
+Stack Outputs

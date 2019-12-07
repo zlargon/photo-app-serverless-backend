@@ -5,7 +5,7 @@ handler.js file contains actual code for the services/functions that will be dep
 serverless.yml file contains the configuration on what AWS services Serverless will provision and how to configure them.
 
 tests/ directory where we can add our unit tests.
-------------------------
+------------------------cd
 GIT: https://github.com/mmanzo1001/serverless-stack-api.git
 
 GIT BACKEND: https://github.com/mmanzo1001/serverless-stack-client.git
@@ -99,3 +99,64 @@ npx aws-api-gateway-cli-test \
 --path-template='/notes' \
 --method='POST' \
 --body='{"content":"hello world","attachment":"hello.jpg"}'
+
+TO START APP: npm start
+
+
+
+
+
+NEW NOTE . js
+
+  //added file1 for new picker
+  const file1 = useRef(null);
+
+// multiple file change handler
+  // removed first element '[0]' so we get all files
+  function handleMultipleFileChange(event) {
+    file1.current = event.target.files
+    console.log( event.target.files );
+  } 
+  // async function handleMultipleFileChange(event) {
+  //   this.setState({uploading: true});
+    
+  //   let files = [];
+  //   for (var i=0; i<event.target.files.length; i++) {
+  //     files.push(event.target.files.item(i));
+  //   }
+  //   await Promise.all(files.map(f => this.s3Upload(f)));
+
+  //   this.setState({uploading: false});
+  // }
+  
+
+
+
+ 
+        //DOES NOT WORK
+        //file1.current is the file array from
+        // const attachment = file1.current
+        // let files = [];
+        // for (var i=0; i<file.target.files.length; i++) {
+        // files.push(file.target.files.item(i));
+        // }
+        // await Promise.all(files.map(f => s3Upload(f))); 
+//DOES NOT WORK
+
+
+      <form onSubmit={handleSubmit}>
+        <FormGroup controlId="file1">
+          <ControlLabel>Attachment-Multiple</ControlLabel>
+          <FormControl onChange={handleMultipleFileChange} type="file" multiple />
+        </FormGroup>
+        <LoaderButton
+          block
+          type="submit"
+          bsSize="large"
+          bsStyle="primary"
+          isLoading={isLoading}
+          disabled={!validateForm()}
+        >
+          Create1
+        </LoaderButton>
+      </form>

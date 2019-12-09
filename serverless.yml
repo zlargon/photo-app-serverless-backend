@@ -10,15 +10,12 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin # Load .env as environment variables
 
-
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   tableName: ${self:custom.stage}-serverless
-
-
 
 provider:
   name: aws
@@ -59,7 +56,7 @@ functions:
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
   create:
-    handler: create.main
+    handler: lambda/create.main
     events:
       - http:
           path: notes
@@ -70,7 +67,7 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
     # - method: GET request
-    handler: get.main
+    handler: lambda/get.main
     events:
       - http:
           path: notes/{id}
@@ -81,7 +78,7 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
     # - method: GET request
-    handler: list.main
+    handler: lambda/list.main
     events:
       - http:
           path: notes
@@ -92,7 +89,7 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /notes/{id}
     # - method: PUT request
-    handler: update.main
+    handler: lambda/update.main
     events:
       - http:
           path: notes/{id}
@@ -103,7 +100,7 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
     # - method: DELETE request
-    handler: delete.main
+    handler: lambda/delete.main
     events:
       - http:
           path: notes/{id}
@@ -114,7 +111,7 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in billing.js
     # - path: url path is /billing
     # - method: POST request
-    handler: billing.main
+    handler: lambda/billing.main
     events:
       - http:
           path: billing

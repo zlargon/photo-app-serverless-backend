@@ -1,0 +1,32 @@
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html#scenario-s3-bucket-website
+Resources:
+  ReactAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+  ReactAppBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref ReactAppBucket
+                - /*
+      Bucket: !Ref ReactAppBucket
+
+Outputs:
+  ReactAppBucketName:
+    Value: !Ref ReactAppBucket
+  ReactAppWebsiteURL:
+    Value: !GetAtt
+      - ReactAppBucket
+      - WebsiteURL

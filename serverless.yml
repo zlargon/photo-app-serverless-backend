@@ -137,6 +137,7 @@ resources:
   - ${file(resources/dynamodb-table.yml)}
   # S3
   - ${file(resources/s3-attachment-bucket.yml)}
+  - ${file(resources/s3-react-app-bucket.yml)}
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}

@@ -14,8 +14,6 @@
   "dependencies": {
     "card-validator": "^6.2.0",
     "jest": "^24.9.0",
-    "react-stripe-elements": "^5.1.0",
-    "stripe": "^7.13.0",
     "uuid": "^3.3.3"
   }
 }

@@ -118,6 +118,13 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  validate_credit_card:
+    handler: lambda/validate_credit_card.main
+    events:
+      - http:
+          path: validate_credit_card/{card_number}
+          method: get
+          cors: true
   # multiple:
   # #defines HTTP API endpoint that calls the main function in multiple.js
   #   handler: multiple.main

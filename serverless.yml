@@ -1,5 +1,5 @@
 # NOTE: update this with your service name
-service: lambda-app2
+service: photo-app
 
 # Create an optimized package for our functions
 package:
@@ -15,7 +15,7 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
-  tableName: ${self:custom.stage}-serverless
+  tableName: ${self:service}-${self:custom.stage}-notes
 
 provider:
   name: aws
@@ -110,16 +110,6 @@ functions:
           path: validate_credit_card/{card_number}
           method: get
           cors: true
-  # multiple:
-  # #defines HTTP API endpoint that calls the main function in multiple.js
-  #   handler: multiple.main
-  #   events:
-  #     - http:
-  #       path: multiple
-  #       method: post
-  #       cors: trueu
-  #       authorizer: aws_iam
-
 
 # Create our resources with separate CloudFormation templates
 resources:

@@ -6,7 +6,7 @@ Resources:
     Properties:
       WebsiteConfiguration:
         IndexDocument: index.html
-        ErrorDocument: error.html
+        ErrorDocument: index.html
   ReactAppBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:

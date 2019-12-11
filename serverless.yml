@@ -123,3 +123,5 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
+  # Cloud Front (this will take very long time)
+  # - ${file(resources/website-cloudfront.yml)}

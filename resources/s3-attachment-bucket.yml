@@ -5,8 +5,7 @@ Resources:
       # Set the CORS policy
       CorsConfiguration:
         CorsRules:
-          -
-            AllowedOrigins:
+          - AllowedOrigins:
               - '*'
             AllowedHeaders:
               - '*'
@@ -21,5 +20,4 @@ Resources:
 # Print out the name of the bucket that is created
 Outputs:
   AttachmentsBucketName:
-    Value:
-      Ref: AttachmentsBucket
+    Value: !Ref AttachmentsBucket

@@ -27,6 +27,4 @@ Outputs:
   ReactAppBucketName:
     Value: !Ref ReactAppBucket
   ReactAppWebsiteURL:
-    Value: !GetAtt
-      - ReactAppBucket
-      - WebsiteURL
+    Value: !GetAtt [ReactAppBucket, WebsiteURL]

@@ -15,8 +15,7 @@ Resources:
     Properties:
       # Generate an app client name based on the stage
       ClientName: ${self:custom.stage}-user-pool-client
-      UserPoolId:
-        Ref: CognitoUserPool
+      UserPoolId: !Ref CognitoUserPool
       ExplicitAuthFlows:
         - ADMIN_NO_SRP_AUTH
       GenerateSecret: false
@@ -24,9 +23,7 @@ Resources:
 # Print out the Id of the User Pool that is created
 Outputs:
   UserPoolId:
-    Value:
-      Ref: CognitoUserPool
+    Value: !Ref CognitoUserPool
 
   UserPoolClientId:
-    Value:
-      Ref: CognitoUserPoolClient
+    Value: !Ref CognitoUserPoolClient

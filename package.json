@@ -7,12 +7,10 @@
   "devDependencies": {
     "aws-sdk": "^2.568.0",
     "serverless": "1.58.0",
-    "serverless-bundle": "^1.2.5",
-    "serverless-offline": "^5.3.3"
+    "serverless-bundle": "^1.2.5"
   },
   "dependencies": {
     "card-validator": "^6.2.0",
-    "jest": "^24.9.0",
     "uuid": "^3.3.3"
   }
 }

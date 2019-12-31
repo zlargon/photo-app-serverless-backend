@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "deploy": "serverless deploy -v",
-    "info": "serverless info -v"
+    "gen": "node scripts/gen_client_config.js"
   },
   "devDependencies": {
     "aws-sdk": "^2.568.0",

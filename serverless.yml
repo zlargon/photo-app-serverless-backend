@@ -40,61 +40,43 @@ provider:
       Resource: !GetAtt [ServerlessTable, Arn]
 
 functions:
-  # Defines an HTTP API endpoint that calls the main function in create.js
-  # - path: url path is /notes
-  # - method: POST request
-  # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
-  #     domain api call
-  # - authorizer: authenticate using the AWS IAM role
   create:
     handler: lambda/create.main
     events:
       - http:
-          path: notes
+          path: photos
           method: post
           cors: true
           authorizer: aws_iam
   get:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
     handler: lambda/get.main
     events:
       - http:
-          path: notes/{id}
+          path: photos/{id}
           method: get
           cors: true
           authorizer: aws_iam
   list:
-    # Defines an HTTP API endpoint that calls the main function in list.js
-    # - path: url path is /notes
-    # - method: GET request
     handler: lambda/list.main
     events:
       - http:
-          path: notes
+          path: photos
           method: get
           cors: true
           authorizer: aws_iam
   update:
-    # Defines an HTTP API endpoint that calls the main function in update.js
-    # - path: url path is /notes/{id}
-    # - method: PUT request
     handler: lambda/update.main
     events:
       - http:
-          path: notes/{id}
+          path: photos/{id}
           method: put
           cors: true
           authorizer: aws_iam
   delete:
-    # Defines an HTTP API endpoint that calls the main function in delete.js
-    # - path: url path is /notes/{id}
-    # - method: DELETE request
     handler: lambda/delete.main
     events:
       - http:
-          path: notes/{id}
+          path: photos/{id}
           method: delete
           cors: true
           authorizer: aws_iam

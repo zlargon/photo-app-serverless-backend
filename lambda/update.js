@@ -7,10 +7,10 @@ export async function main(event, context) {
     TableName: process.env.tableName,
     // 'Key' defines the partition key and sort key of the item to be updated
     // - 'userId': Identity Pool identity id of the authenticated user
-    // - 'noteId': path parameter
+    // - 'photoID': path parameter
     Key: {
       userID: event.requestContext.identity.cognitoIdentityId,
-      noteID: event.pathParameters.id
+      photoID: event.pathParameters.id
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression

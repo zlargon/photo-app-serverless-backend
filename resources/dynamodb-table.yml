@@ -7,12 +7,12 @@ Resources:
       AttributeDefinitions:
         - AttributeName: userID
           AttributeType: S
-        - AttributeName: noteID
+        - AttributeName: photoID
           AttributeType: S
       KeySchema:
         - AttributeName: userID
           KeyType: HASH
-        - AttributeName: noteID
+        - AttributeName: photoID
           KeyType: RANGE
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
